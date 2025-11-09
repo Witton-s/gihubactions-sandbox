@@ -24,6 +24,6 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - run: java -jar build/libs/helloworld-1.0.0.jar
+      - run: java -jar helloworld-1.0.0.jar
 
 
