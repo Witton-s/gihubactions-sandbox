@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.example'
+version = '1.0.0'
+
+application {
+    mainClass = 'com.example.HelloWorld'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JUnit 5（Jupiter）を使用
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+}
+
+test {
+    useJUnitPlatform() // JUnit 5を使用する設定
+}
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': application.mainClass
+        )
+    }
+    // 依存関係込みのfat jarにしたい場合はコメントアウト解除
+    // from {
+    //     configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    // }
+}
