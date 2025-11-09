@@ -1,0 +1,22 @@
+name: caller-workflow
+
+# Controls when the workflow will run
+on:
+  workflow_dispatch:
+
+jobs:
+  call-workflow:
+    uses: Witton-s/example-repo/.github/workflows/reusable-workflow.yml@main
+
+  download-artifacts:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-files
+
+      - run: ls -R
+      - run: cat sample.txt
+  call-download-workflow:
+     uses: Witton-s/example-repo/.github/workflows/reusable-download-workflow.yml@main
