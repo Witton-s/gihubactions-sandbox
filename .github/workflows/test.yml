@@ -6,7 +6,7 @@ on:
 
 jobs:
   call-workflow:
-    uses: Witton-s/example-repo/.github/workflows/reusable-workflow.yml@main
+    uses: Witton-s/pipeline-template/.github/workflows/reusable-workflow.yml@main
 
   download-artifacts:
       runs-on: ubuntu-latest
@@ -17,6 +17,14 @@ jobs:
           name: build-files
 
       - run: ls -R
-      - run: cat sample.txt
+      - run: cat test.txt
+
+      - run: echo Hello, Caller-world!　> test.txt
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: caller-files
+          path: test.txt
+
   call-download-workflow:
-     uses: Witton-s/example-repo/.github/workflows/reusable-download-workflow.yml@main
+     uses: Witton-s/pipeline-template/.github/workflows/reusable-download-workflow.yml@main
