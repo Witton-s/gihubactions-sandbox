@@ -7,8 +7,6 @@ on:
 jobs:
   call-java-workflow:
       uses: Witton-s/pipeline-template/.github/workflows/reusable-java-workflow.yml@main
-      with: 
-       push-java: true
   download-artifacts:
       runs-on: ubuntu-latest
       needs: call-java-workflow
