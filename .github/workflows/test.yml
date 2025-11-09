@@ -12,7 +12,7 @@ jobs:
       needs: call-workflow
       steps:
       - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: build-files
 
@@ -21,7 +21,7 @@ jobs:
 
       - run: echo Hello, Caller-world!　> test.txt
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: caller-files
           path: test.txt
