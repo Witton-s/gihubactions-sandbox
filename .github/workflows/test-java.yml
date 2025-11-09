@@ -9,23 +9,23 @@ jobs:
       uses: Witton-s/pipeline-template/.github/workflows/reusable-java-workflow.yml@main
       with:
         push-java: true
-  download-artifacts:
-      runs-on: ubuntu-latest
-      needs: call-java-workflow
-      steps:
-      - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
-        with:
-          name: build-files
+  # download-artifacts:
+  #     runs-on: ubuntu-latest
+  #     needs: call-java-workflow
+  #     steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/download-artifact@v4
+  #       with:
+  #         name: build-files
 
-      - run: ls -R
+  #     - run: ls -R
 
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 17
+  #     - name: Set up JDK
+  #       uses: actions/setup-java@v4
+  #       with:
+  #         distribution: temurin
+  #         java-version: 17
 
-      - run: java -jar helloworld-1.0.0.jar
+  #     - run: java -jar helloworld-1.0.0.jar
 
 
